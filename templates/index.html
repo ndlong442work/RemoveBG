@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa nền ảnh</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
+        input, button { margin: 10px; }
+        img { margin-top: 20px; max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h2>Xóa nền ảnh</h2>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Tải lên & Xóa nền</button>
+    </form>
+
+    {% if img_data %}
+        <h3>Ảnh sau khi xóa nền:</h3>
+        <img src="data:image/png;base64,{{ img_data }}" alt="Kết quả">
+    {% endif %}
+</body>
+</html>
