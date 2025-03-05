@@ -3,6 +3,7 @@ from rembg import remove
 from PIL import Image
 import io
 import base64
+import os
 
 app = Flask(__name__)
 
@@ -28,8 +29,6 @@ def index():
         img_data = base64.b64encode(img_io.getvalue()).decode("utf-8")
 
     return render_template("index.html", img_data=img_data)
-
-import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Lấy cổng từ biến môi trường, mặc định 5000 nếu không có
