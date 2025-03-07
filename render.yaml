@@ -2,10 +2,12 @@ services:
   - type: web
     name: remove-bg-app
     env: python
-    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    buildCommand: |
+      apt-get update && apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6 libcairo2
+      pip install --upgrade pip && pip install -r requirements.txt
     startCommand: "bash start.sh"
     plan: free
     envVars:
       - key: PORT
-        value: 5000  # Render sẽ tự cấp giá trị, nhưng có thể đặt tạm
+        value: 5000  # Render tự cấp giá trị, nhưng có thể đặt tạm
     autoDeploy: true
