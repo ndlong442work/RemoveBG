@@ -31,5 +31,6 @@ def index():
     return render_template("index.html", img_data=img_data)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Lấy cổng từ biến môi trường, mặc định 5000 nếu không có
+    port = int(os.environ.get("PORT", 8080))
+    print(f"Running on port: {port}")
     app.run(host="0.0.0.0", port=port)
